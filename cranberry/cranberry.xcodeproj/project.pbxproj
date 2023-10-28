@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810E47A72AED525E00BDB14E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810E47A62AED525E00BDB14E /* CalendarView.swift */; };
 		815326F72AEBBB1D000490E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815326F62AEBBB1D000490E7 /* ContentView.swift */; };
 		815326F92AEBBB20000490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 815326F82AEBBB20000490E7 /* Assets.xcassets */; };
 		815326FC2AEBBB20000490E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 815326FB2AEBBB20000490E7 /* Preview Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810E47A62AED525E00BDB14E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		815326F12AEBBB1D000490E7 /* cranberry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cranberry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		815326F42AEBBB1D000490E7 /* cranberryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cranberryApp.swift; sourceTree = "<group>"; };
 		815326F62AEBBB1D000490E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		810E47A52AED51F500BDB14E /* carender */ = {
+			isa = PBXGroup;
+			children = (
+				810E47A62AED525E00BDB14E /* CalendarView.swift */,
+			);
+			path = carender;
+			sourceTree = "<group>";
+		};
 		815326E82AEBBB1D000490E7 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		815326F32AEBBB1D000490E7 /* cranberry */ = {
 			isa = PBXGroup;
 			children = (
+				810E47A52AED51F500BDB14E /* carender */,
 				81D9E8312AECAE7000D1A8BD /* Home */,
 				81D9E82C2AECA09100D1A8BD /* Login */,
 				81F44B162AEBF370007FBCA9 /* Info.plist */,
@@ -316,6 +327,7 @@
 			files = (
 				81D9E81D2AEC098500D1A8BD /* AppDelegate.swift in Sources */,
 				81D9E8352AECB0E600D1A8BD /* PageCarenderView.swift in Sources */,
+				810E47A72AED525E00BDB14E /* CalendarView.swift in Sources */,
 				81D9E8252AEC0A4E00D1A8BD /* LineLoginButton.swift in Sources */,
 				815326F72AEBBB1D000490E7 /* ContentView.swift in Sources */,
 				81D9E8232AEC0A2C00D1A8BD /* LoginViewModel.swift in Sources */,

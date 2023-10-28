@@ -25,3 +25,19 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+////変更以下を加えた
+//import SwiftUI
+//
+//struct ContentView: View {
+//    var body: some View {
+//        PageCarenderView { dateComponents in
+//            guard let year = dateComponents.year,
+//                  let month = dateComponents.month,
+//                  let day = dateComponents.day else {
+//                return
+//            }
+//            print("yate: \(year), month: \(month), day: \(day)")
+//        }
+//    }
+//}
