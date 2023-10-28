@@ -30,11 +30,10 @@ class LoginViewModel: ObservableObject {
         $isLoginButtonTapped
             .sink(receiveValue: { isTapped in
                 if isTapped == true {
-                    //ログイン後の画面遷移？
-                    
                 }
             })
             .store(in: &disposables)
+        print("ログイン押した")//追加
         
 //        $appleAuthResults
 //            .sink(receiveValue: { results in

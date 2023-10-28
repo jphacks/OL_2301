@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		815326F52AEBBB1D000490E7 /* cranberryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815326F42AEBBB1D000490E7 /* cranberryApp.swift */; };
 		815326F72AEBBB1D000490E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815326F62AEBBB1D000490E7 /* ContentView.swift */; };
 		815326F92AEBBB20000490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 815326F82AEBBB20000490E7 /* Assets.xcassets */; };
 		815326FC2AEBBB20000490E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 815326FB2AEBBB20000490E7 /* Preview Assets.xcassets */; };
 		815327062AEBBB20000490E7 /* cranberryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815327052AEBBB20000490E7 /* cranberryTests.swift */; };
 		815327102AEBBB20000490E7 /* cranberryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153270F2AEBBB20000490E7 /* cranberryUITests.swift */; };
 		815327122AEBBB20000490E7 /* cranberryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815327112AEBBB20000490E7 /* cranberryUITestsLaunchTests.swift */; };
+		81D9E81D2AEC098500D1A8BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E81C2AEC098500D1A8BD /* AppDelegate.swift */; };
+		81D9E81F2AEC09D600D1A8BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E81E2AEC09D600D1A8BD /* SceneDelegate.swift */; };
+		81D9E8212AEC09F200D1A8BD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E8202AEC09F200D1A8BD /* LoginView.swift */; };
+		81D9E8232AEC0A2C00D1A8BD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E8222AEC0A2C00D1A8BD /* LoginViewModel.swift */; };
+		81D9E8252AEC0A4E00D1A8BD /* LineLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E8242AEC0A4E00D1A8BD /* LineLoginButton.swift */; };
+		81D9E8282AEC0C5100D1A8BD /* cranberryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815326F42AEBBB1D000490E7 /* cranberryApp.swift */; };
+		81D9E8302AECADD100D1A8BD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E82F2AECADD100D1A8BD /* HomeView.swift */; };
+		81D9E8332AECB03B00D1A8BD /* PageMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E8322AECB03B00D1A8BD /* PageMenuView.swift */; };
+		81D9E8352AECB0E600D1A8BD /* PageCarenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E8342AECB0E600D1A8BD /* PageCarenderView.swift */; };
+		81D9E8372AECB14500D1A8BD /* PageMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E8362AECB14500D1A8BD /* PageMessageView.swift */; };
+		81D9E83A2AECB1F600D1A8BD /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81D9E8392AECB1F600D1A8BD /* OpenAIKit */; };
+		81F44B152AEBF33D007FBCA9 /* LineSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 81F44B142AEBF33D007FBCA9 /* LineSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +55,16 @@
 		8153270B2AEBBB20000490E7 /* cranberryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cranberryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8153270F2AEBBB20000490E7 /* cranberryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cranberryUITests.swift; sourceTree = "<group>"; };
 		815327112AEBBB20000490E7 /* cranberryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cranberryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		81D9E81C2AEC098500D1A8BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = cranberry/Login/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		81D9E81E2AEC09D600D1A8BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		81D9E8202AEC09F200D1A8BD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		81D9E8222AEC0A2C00D1A8BD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		81D9E8242AEC0A4E00D1A8BD /* LineLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineLoginButton.swift; sourceTree = "<group>"; };
+		81D9E82F2AECADD100D1A8BD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		81D9E8322AECB03B00D1A8BD /* PageMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMenuView.swift; sourceTree = "<group>"; };
+		81D9E8342AECB0E600D1A8BD /* PageCarenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCarenderView.swift; sourceTree = "<group>"; };
+		81D9E8362AECB14500D1A8BD /* PageMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMessageView.swift; sourceTree = "<group>"; };
+		81F44B162AEBF370007FBCA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F44B152AEBF33D007FBCA9 /* LineSDK in Frameworks */,
+				81D9E83A2AECB1F600D1A8BD /* OpenAIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +117,13 @@
 		815326F32AEBBB1D000490E7 /* cranberry */ = {
 			isa = PBXGroup;
 			children = (
+				81D9E8312AECAE7000D1A8BD /* Home */,
+				81D9E82C2AECA09100D1A8BD /* Login */,
+				81F44B162AEBF370007FBCA9 /* Info.plist */,
+				81D9E82F2AECADD100D1A8BD /* HomeView.swift */,
+				81D9E8322AECB03B00D1A8BD /* PageMenuView.swift */,
+				81D9E8342AECB0E600D1A8BD /* PageCarenderView.swift */,
+				81D9E8362AECB14500D1A8BD /* PageMessageView.swift */,
 				815326F42AEBBB1D000490E7 /* cranberryApp.swift */,
 				815326F62AEBBB1D000490E7 /* ContentView.swift */,
 				815326F82AEBBB20000490E7 /* Assets.xcassets */,
@@ -127,6 +157,25 @@
 			path = cranberryUITests;
 			sourceTree = "<group>";
 		};
+		81D9E82C2AECA09100D1A8BD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				81D9E81C2AEC098500D1A8BD /* AppDelegate.swift */,
+				81D9E81E2AEC09D600D1A8BD /* SceneDelegate.swift */,
+				81D9E8222AEC0A2C00D1A8BD /* LoginViewModel.swift */,
+				81D9E8242AEC0A4E00D1A8BD /* LineLoginButton.swift */,
+				81D9E8202AEC09F200D1A8BD /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		81D9E8312AECAE7000D1A8BD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +192,10 @@
 			dependencies = (
 			);
 			name = cranberry;
+			packageProductDependencies = (
+				81F44B142AEBF33D007FBCA9 /* LineSDK */,
+				81D9E8392AECB1F600D1A8BD /* OpenAIKit */,
+			);
 			productName = cranberry;
 			productReference = 815326F12AEBBB1D000490E7 /* cranberry.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +268,10 @@
 				Base,
 			);
 			mainGroup = 815326E82AEBBB1D000490E7;
+			packageReferences = (
+				81F44B132AEBF33D007FBCA9 /* XCRemoteSwiftPackageReference "line-sdk-ios-swift" */,
+				81D9E8382AECB1F600D1A8BD /* XCRemoteSwiftPackageReference "OpenAIKit" */,
+			);
 			productRefGroup = 815326F22AEBBB1D000490E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +314,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D9E81D2AEC098500D1A8BD /* AppDelegate.swift in Sources */,
+				81D9E8352AECB0E600D1A8BD /* PageCarenderView.swift in Sources */,
+				81D9E8252AEC0A4E00D1A8BD /* LineLoginButton.swift in Sources */,
 				815326F72AEBBB1D000490E7 /* ContentView.swift in Sources */,
-				815326F52AEBBB1D000490E7 /* cranberryApp.swift in Sources */,
+				81D9E8232AEC0A2C00D1A8BD /* LoginViewModel.swift in Sources */,
+				81D9E8332AECB03B00D1A8BD /* PageMenuView.swift in Sources */,
+				81D9E8282AEC0C5100D1A8BD /* cranberryApp.swift in Sources */,
+				81D9E8302AECADD100D1A8BD /* HomeView.swift in Sources */,
+				81D9E8212AEC09F200D1A8BD /* LoginView.swift in Sources */,
+				81D9E81F2AEC09D600D1A8BD /* SceneDelegate.swift in Sources */,
+				81D9E8372AECB14500D1A8BD /* PageMessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +485,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"cranberry/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = cranberry/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -447,6 +514,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"cranberry/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = cranberry/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -577,6 +645,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		81D9E8382AECB1F600D1A8BD /* XCRemoteSwiftPackageReference "OpenAIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marcodotio/OpenAIKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		81F44B132AEBF33D007FBCA9 /* XCRemoteSwiftPackageReference "line-sdk-ios-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/line/line-sdk-ios-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		81D9E8392AECB1F600D1A8BD /* OpenAIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81D9E8382AECB1F600D1A8BD /* XCRemoteSwiftPackageReference "OpenAIKit" */;
+			productName = OpenAIKit;
+		};
+		81F44B142AEBF33D007FBCA9 /* LineSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81F44B132AEBF33D007FBCA9 /* XCRemoteSwiftPackageReference "line-sdk-ios-swift" */;
+			productName = LineSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 815326E92AEBBB1D000490E7 /* Project object */;
 }

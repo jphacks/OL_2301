@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "line-sdk-ios-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/line/line-sdk-ios-swift.git",
+      "state" : {
+        "revision" : "5d2deb7f775be7547733e0502312c11e52755711",
+        "version" : "5.10.1"
+      }
+    },
+    {
+      "identity" : "openaikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marcodotio/OpenAIKit",
+      "state" : {
+        "revision" : "9e718bc33f10bc0c0524ae140be6a89651c4ea3d",
+        "version" : "1.2.0"
+      }
+    }
+  ],
+  "version" : 2
+}

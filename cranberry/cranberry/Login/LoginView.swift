@@ -3,6 +3,8 @@ import AuthenticationServices
 
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
+    //画面遷移の時に使用するbool値
+    @State private var isPresented: Bool = false
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -27,7 +29,17 @@ struct LoginView: View {
                 // ボタンが選択されたことをLoginViewModelの変数isLoginButtonTappedに通知
                 viewModel.isLoginButtonTapped = true
             }) {
-                Text("ログイン")
+//                Text("ログイン")
+                //ここにログイン処理を追加する
+                Button(action: {
+                    isPresented = true //trueにしないと画面遷移されない
+                }) {
+//                    Text("NextViewへ")
+                    Text("ログイン")
+                }
+                .fullScreenCover(isPresented: $isPresented) { //フルスクリーンの画面遷移
+                    HomeView()
+                }
             }
             .frame(width: 200, height: 45)
             .foregroundColor(Color.white)

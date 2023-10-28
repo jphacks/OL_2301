@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import LineSDK
+
 
 @main
 struct cranberryApp: App {
+   @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView(viewModel: LoginViewModel())
         }
     }
 }
