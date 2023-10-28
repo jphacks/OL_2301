@@ -4,12 +4,15 @@ struct PageMenuView: View {
     var body: some View {
         NavigationView{
             List {
-                NavigationLink("このアプリについて") {
+                NavigationLink("このアプリについて"){
                     AboutApp()
                 }
+                .foregroundColor(.black)
+                
                 NavigationLink("開発者情報") {
                     AboutDevepoper()
                 }
+                .foregroundColor(.black)
             }
 //            タイトル
             .navigationBarTitle("Cranberry", displayMode: .inline)
@@ -19,13 +22,18 @@ struct PageMenuView: View {
 
 struct AboutApp: View {
     var body: some View {
-        Text("このアプリについて書いていくイメージ")
+        Text("ここで話してみよう。気持ちリセットのお供にcranberry。")
+            .foregroundColor(.black)
     }
 }
 
 struct AboutDevepoper: View {
     var body: some View {
-        Text("開発者についてここで書いていくイメージ")
+        Text("created by らっきー&あずちゃん")
+            .foregroundColor(.black)
+        Text("みんなの気持ちが少しでも前向きになりますように")
+            .foregroundColor(.orange)
+            .font(.callout)
     }
 }
 
