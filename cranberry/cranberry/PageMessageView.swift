@@ -24,8 +24,9 @@ struct PageMessageView: View {
     
     // チャット画面のビューレイアウト
     var body: some View {
+
         VStack {
-            // スクロール可能なメッセージリストの表示
+//             スクロール可能なメッセージリストの表示
             ScrollView {
                 VStack(alignment: .leading) {
                     ForEach(chat.indices, id: \.self) { index in
@@ -34,9 +35,36 @@ struct PageMessageView: View {
                         }
                     }
                 }
-            }
+//                以下追加
+//                .onChange(of: chat.indices) { _ in
+//                        withAnimation {
+//                            proxy.scrollTo(index)
+//                        }
+//                    }
+//                ここまで
+                
+                }
             .padding(.top)
+            
+                //以下追加 10290250
+//                ScrollViewReader { proxy in
+//                    VStack(alignment: .leading) {
+//                        ForEach(chat.indices, id: \.self) { index in
+//                            if index>0{
+//                                MessageView(message: chat[index])
+//                            }
+//                        }
+//                    }
+//                    .onChange(of: chat.indices) { _ in
+//                        withAnimation {
+//                            proxy.scrollTo(chat.count)
+//                        }
+//                    }
+//                }
+//                .padding(.top)
+//                ここまで
 
+        
             // 画面をタップしたときにキーボードを閉じる
             .onTapGesture {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -70,7 +98,7 @@ struct PageMessageView: View {
                             // OpenAIの設定
                             let config = Configuration(
                                 organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
-                                apiKey:"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"
+                                apiKey:"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"
                             )
                             let openAI = OpenAI(config)
                             let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
@@ -92,44 +120,7 @@ struct PageMessageView: View {
                     Image(systemName: "arrow.up.circle.fill")
                         .font(.system(size: 30))
                         .foregroundColor(self.text == "" ? Color(#colorLiteral(red: 0.75, green: 0.95, blue: 0.8, alpha: 1)) : Color(#colorLiteral(red: 0.2078431373, green: 0.7647058824, blue: 0.3450980392, alpha: 1)))
-////                    //会話終了のボタンを作成
-//                    Button(action: {
-//                        //21:47追加
-//                        isCompleting = true
-//                        mess = "今日はここまで！"
-//                        chat.append(ChatMessage(role: .user, content: mess))
-//                        print("ログイン押した")//追加
-//                        Task {
-//                            do {
-//                                // OpenAIの設定
-//                                let config = Configuration(
-//                                    organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
-//                                    apiKey:"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"
-//                                )
-//                                let openAI = OpenAI(config)
-//                                let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
-//
-//                                // チャットの生成
-//                                let chatCompletion = try await openAI.generateChatCompletion(
-//                                    parameters: chatParameters
-//                                )
-//
-//                                isCompleting = false
-//                                // AIのレスポンスをチャットに追加
-//                                chat.append(ChatMessage(role: .assistant, content: chatCompletion.choices[0].message.content))
-//                            } catch {
-//                                print("ERROR DETAILS - \(error)")
-//                            }
-//                        }
-//                        self.ButtonFlag = true
-//                    }) {
-//                        Text("まとめ")
-//                    }
-//                    .padding()
-//                    .accentColor(Color.white)
-//                    .background(Color.green)
-//                    .cornerRadius(50)
-////                    //ここまで追加 21:47
+
                 }
 //                 テキストが空またはチャットが完了していない場合はボタンを無効化
                 .disabled(self.text == "" || isCompleting)
@@ -213,3 +204,41 @@ func setupNavigationBar() {
 }
 
 
+////     101行当たり               //会話終了のボタンを作成
+//                    Button(action: {
+//                        //21:47追加
+//                        isCompleting = true
+//                        mess = "今日はここまで！"
+//                        chat.append(ChatMessage(role: .user, content: mess))
+//                        print("ログイン押した")//追加
+//                        Task {
+//                            do {
+//                                // OpenAIの設定
+//                                let config = Configuration(
+//                                    organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
+//                                    apiKey:"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"
+//                                )
+//                                let openAI = OpenAI(config)
+//                                let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
+//
+//                                // チャットの生成
+//                                let chatCompletion = try await openAI.generateChatCompletion(
+//                                    parameters: chatParameters
+//                                )
+//
+//                                isCompleting = false
+//                                // AIのレスポンスをチャットに追加
+//                                chat.append(ChatMessage(role: .assistant, content: chatCompletion.choices[0].message.content))
+//                            } catch {
+//                                print("ERROR DETAILS - \(error)")
+//                            }
+//                        }
+//                        self.ButtonFlag = true
+//                    }) {
+//                        Text("まとめ")
+//                    }
+//                    .padding()
+//                    .accentColor(Color.white)
+//                    .background(Color.green)
+//                    .cornerRadius(50)
+////                    //ここまで追加 21:47
