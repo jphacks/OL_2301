@@ -4,34 +4,27 @@ import OpenAIKit
 
 // チャット表示用のメインビュー
 struct PageMessageView: View {
-
+    //会話終了を押したかのフラグ ここ追加
+    @State private var ButtonFlag = false
     // 現在のチャットが完了しているかどうかを示す変数
     @State private var isCompleting: Bool = false
     
     // ユーザーが入力するテキストを保存する変数
     @State private var text: String = ""
     
+    //102821:41追加 終わりのメッセージ
+    @State private var mess: String = ""
+    
     // チャットメッセージの配列
     @State private var chat: [ChatMessage] = [
-        ChatMessage(role: .system, content: "あなたはユーザーの質問や会話に友達のように回答するほめちゃんという人物です。会話を終えるボタンを押したら、ユーザーの気分と会話内容の要約を表示してください。全て友人口調でユーザが「相談」と入力した場合、ユーザーの気分・原因を聞いた後、カウンセリングしてください。ユーザが「ほめて」と入力した場合、ユーザの自己肯定感が上がるよう、たくさん褒めてください。"),
-        ChatMessage(role: .assistant, content:"今日の気分はどう？")
+        ChatMessage(role: .system, content: "あなたはユーザーの質問や会話に友達のように回答するほめちゃんという人物です。とてもフレンドリーに会話を行います。ユーザーが気分を述べた場合、原因を聞いた後、カウンセリングしてください。ユーザーが「ほめて」と入力した場合、ユーザーの自己肯定感が上がるよう、たくさん褒めてください。「まとめ」と言われたら会話内容の要約を表示してください。"),
+        ChatMessage(role: .assistant, content:"こんにちは！今日の気分はどう？")
     ]
 
     
     // チャット画面のビューレイアウト
     var body: some View {
         VStack {
-//            // スクロール可能なメッセージリストの表示
-//            ScrollView {
-//                VStack(alignment: .leading) {
-//                    ForEach(chat.indices, id: \.self) { index in
-//                        // 最初のメッセージ以外を表示
-//                        if index > 1 {
-//                            MessageView(message: chat[index])
-//                        }
-//                    }
-//                }
-//            }
             // スクロール可能なメッセージリストの表示
             ScrollView {
                 VStack(alignment: .leading) {
@@ -77,7 +70,7 @@ struct PageMessageView: View {
                             // OpenAIの設定
                             let config = Configuration(
                                 organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
-                                apiKey:"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"
+                                apiKey:"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"
                             )
                             let openAI = OpenAI(config)
                             let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
@@ -99,20 +92,49 @@ struct PageMessageView: View {
                     Image(systemName: "arrow.up.circle.fill")
                         .font(.system(size: 30))
                         .foregroundColor(self.text == "" ? Color(#colorLiteral(red: 0.75, green: 0.95, blue: 0.8, alpha: 1)) : Color(#colorLiteral(red: 0.2078431373, green: 0.7647058824, blue: 0.3450980392, alpha: 1)))
-//                    //会話終了のボタンを作成
+////                    //会話終了のボタンを作成
 //                    Button(action: {
-//                        print("tap buton")
+//                        //21:47追加
+//                        isCompleting = true
+//                        mess = "今日はここまで！"
+//                        chat.append(ChatMessage(role: .user, content: mess))
+//                        print("ログイン押した")//追加
+//                        Task {
+//                            do {
+//                                // OpenAIの設定
+//                                let config = Configuration(
+//                                    organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
+//                                    apiKey:"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"
+//                                )
+//                                let openAI = OpenAI(config)
+//                                let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
+//
+//                                // チャットの生成
+//                                let chatCompletion = try await openAI.generateChatCompletion(
+//                                    parameters: chatParameters
+//                                )
+//
+//                                isCompleting = false
+//                                // AIのレスポンスをチャットに追加
+//                                chat.append(ChatMessage(role: .assistant, content: chatCompletion.choices[0].message.content))
+//                            } catch {
+//                                print("ERROR DETAILS - \(error)")
+//                            }
+//                        }
+//                        self.ButtonFlag = true
 //                    }) {
-//                        Text("会話終了")
+//                        Text("まとめ")
 //                    }
 //                    .padding()
 //                    .accentColor(Color.white)
 //                    .background(Color.green)
-//                    .cornerRadius(26)
-//                    //ここまで
+//                    .cornerRadius(50)
+////                    //ここまで追加 21:47
                 }
-                // テキストが空またはチャットが完了していない場合はボタンを無効化
+//                 テキストが空またはチャットが完了していない場合はボタンを無効化
                 .disabled(self.text == "" || isCompleting)
+////                ここを変更した1028.19.26ボタンの条件追加
+//                .disabled(self.text == "" || isCompleting || ButtonFlag)
             }
             .padding(.horizontal)
             .padding(.bottom, 8) // 下部のパディングを調整
@@ -173,12 +195,21 @@ struct AvatarView: View {
     }
 }
 
-
 // プレビュー
 struct PageMessageview_Previews: PreviewProvider {
     static var previews: some View {
         PageMessageView()
     }
+}
+ 
+func setupNavigationBar() {
+    let appearance = UINavigationBarAppearance()
+    appearance.configureWithOpaqueBackground()
+    appearance.backgroundColor = .purple
+    appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+    appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    UINavigationBar.appearance().standardAppearance = appearance
+    UINavigationBar.appearance().scrollEdgeAppearance = appearance
 }
 
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State var selection = 1
     var body: some View {
+        
         TabView {
             
                     // --- ここから ---
@@ -51,12 +52,14 @@ struct HomeView: View {
                     // 上記のように「ここから」と「ここまで」の間の部分をタブアイテムの数だけ繰り返す
                 }
         .accentColor(.yellow)
+        
 //        NavigationView{
 //            .navigationBarTitle("cranberry",displayMode: .inline)
 //        }
 
     }
     init() {
+
       // 文字色
       UITabBar.appearance().unselectedItemTintColor = .white
       // 背景色
