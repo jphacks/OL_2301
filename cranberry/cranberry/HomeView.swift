@@ -31,8 +31,8 @@ struct HomeView: View {
             PageCarenderView()
                         .tabItem {
                             // タブのラベル部分のビュー
-                            Text("carender")
-                            Image(systemName:"rectangle.split.3x3")
+                            Text("history")
+                            Image(systemName:"tray.full.fill")
                         }
                         .tag(2)
                     // --- ここまで ---

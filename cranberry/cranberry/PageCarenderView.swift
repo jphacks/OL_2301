@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct PageCarenderView: View {
+    
+    // ユーザーの気持ちを保存する変数
+    @State private var feel: String = "none"
+    // ユーザーの出来事を保存する変数
+    @State private var incident: String = "none"
+    // 日時保存する変数
+    @State private var datetext: String = ""
+    //まとめを押したかどうか
+    @State private var isPress: Bool = false
+    
     var body: some View {
 
         ZStack {

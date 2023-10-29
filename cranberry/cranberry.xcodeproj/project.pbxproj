@@ -14,7 +14,6 @@
 		815327062AEBBB20000490E7 /* cranberryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815327052AEBBB20000490E7 /* cranberryTests.swift */; };
 		815327102AEBBB20000490E7 /* cranberryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153270F2AEBBB20000490E7 /* cranberryUITests.swift */; };
 		815327122AEBBB20000490E7 /* cranberryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815327112AEBBB20000490E7 /* cranberryUITestsLaunchTests.swift */; };
-		8153EBED2AEDBF2F00BE5FCC /* FeelbuttonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8153EBEC2AEDBF2F00BE5FCC /* FeelbuttonView.swift */; };
 		81D9E81D2AEC098500D1A8BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E81C2AEC098500D1A8BD /* AppDelegate.swift */; };
 		81D9E81F2AEC09D600D1A8BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E81E2AEC09D600D1A8BD /* SceneDelegate.swift */; };
 		81D9E8212AEC09F200D1A8BD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9E8202AEC09F200D1A8BD /* LoginView.swift */; };
@@ -58,7 +57,6 @@
 		8153270B2AEBBB20000490E7 /* cranberryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cranberryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8153270F2AEBBB20000490E7 /* cranberryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cranberryUITests.swift; sourceTree = "<group>"; };
 		815327112AEBBB20000490E7 /* cranberryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cranberryUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8153EBEC2AEDBF2F00BE5FCC /* FeelbuttonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelbuttonView.swift; sourceTree = "<group>"; };
 		81D9E81C2AEC098500D1A8BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = cranberry/Login/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		81D9E81E2AEC09D600D1A8BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		81D9E8202AEC09F200D1A8BD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				81D9E82F2AECADD100D1A8BD /* HomeView.swift */,
 				81D9E8322AECB03B00D1A8BD /* PageMenuView.swift */,
 				81D9E8342AECB0E600D1A8BD /* PageCarenderView.swift */,
-				8153EBEC2AEDBF2F00BE5FCC /* FeelbuttonView.swift */,
 				81D9E8362AECB14500D1A8BD /* PageMessageView.swift */,
 				815326F42AEBBB1D000490E7 /* cranberryApp.swift */,
 				815326F62AEBBB1D000490E7 /* ContentView.swift */,
@@ -334,7 +331,6 @@
 				81D9E8252AEC0A4E00D1A8BD /* LineLoginButton.swift in Sources */,
 				815326F72AEBBB1D000490E7 /* ContentView.swift in Sources */,
 				81D9E8232AEC0A2C00D1A8BD /* LoginViewModel.swift in Sources */,
-				8153EBED2AEDBF2F00BE5FCC /* FeelbuttonView.swift in Sources */,
 				81D9E8332AECB03B00D1A8BD /* PageMenuView.swift in Sources */,
 				81D9E8282AEC0C5100D1A8BD /* cranberryApp.swift in Sources */,
 				81D9E8302AECADD100D1A8BD /* HomeView.swift in Sources */,
