@@ -1,6 +1,6 @@
 # Cranberry ~ ほめちゃん ~
 
-[![<img width="695" alt="cranberryinfo" src="https://github.com/jphacks/OL_2301/assets/126032344/bb41232d-80c1-404c-b558-03fea259d0d7">]()
+![Test Image 3](/cranberry/cranberryinfo.png)
 
 
 ## 製品概要
