@@ -2,6 +2,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct LoginView: View {
+
     @ObservedObject var viewModel: LoginViewModel
     //画面遷移の時に使用するbool値
     @State private var isPresented: Bool = false
@@ -24,13 +25,13 @@ struct LoginView: View {
 //                    .padding(EdgeInsets(top: 300, leading: 0, bottom: 0, trailing: 0))
                 
                 // 入力した文字をLoginViewModelの変数idに通知
-                TextField("ID（半角英数）", text: $viewModel.id)
+                TextField("ニックネーム（半角英数）", text: $viewModel.id)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(width: 300)
                     .padding(EdgeInsets(top: 400, leading: 0, bottom: 0, trailing: 0))
                 
                 // 入力した文字をLoginViewModelの変数passwordに通知
-                TextField("パスワード（半角英数）", text: $viewModel.password)
+                TextField("Age(半角英数)", text: $viewModel.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(width: 300)
                     .padding(EdgeInsets(top: 485, leading: 0, bottom: 0, trailing: 0))
@@ -45,7 +46,7 @@ struct LoginView: View {
                         isPresented = true //trueにしないと画面遷移されない
                     }) {
                         //                    Text("NextViewへ")
-                        Text("ログイン")
+                        Text("はじめる")
                     }
                     .fullScreenCover(isPresented: $isPresented) { //フルスクリーンの画面遷移
                         HomeView()

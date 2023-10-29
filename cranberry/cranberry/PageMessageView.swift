@@ -4,13 +4,17 @@ import OpenAIKit
 
 // チャット表示用のメインビュー
 struct PageMessageView: View {
-    //会話終了を押したかのフラグ ここ追加
-    @State private var ButtonFlag = false
+
+//    会話終了を押したかのフラグ ここ追加
+//    @State private var ButtonFlag = false
     // 現在のチャットが完了しているかどうかを示す変数
     @State private var isCompleting: Bool = false
     
     // ユーザーが入力するテキストを保存する変数
     @State private var text: String = ""
+    
+    // ユーザーの気持ちを保存する変数
+    @State private var feel: String = "none"
     
     //102821:41追加 終わりのメッセージ
     @State private var mess: String = ""
@@ -18,36 +22,70 @@ struct PageMessageView: View {
     // チャットメッセージの配列
     @State private var chat: [ChatMessage] = [
         ChatMessage(role: .system, content: "あなたはユーザーの質問や会話に友達のように回答するほめちゃんという人物です。とてもフレンドリーに会話を行います。ユーザーが気分を述べた場合、原因を聞いた後、カウンセリングしてください。ユーザーが「ほめて」と入力した場合、ユーザーの自己肯定感が上がるよう、たくさん褒めてください。「まとめ」と言われたら会話内容の要約を表示してください。"),
-        ChatMessage(role: .assistant, content:"こんにちは！今日の気分はどう？")
+        ChatMessage(role: .assistant, content:"こんにちは！今日の出来事を教えてね")
     ]
-
+    
+    struct MyButtonStyle: ButtonStyle {
+        func makeBody(configuration: Self.Configuration) -> some View {
+            configuration.label
+                .font(.system(size: 10))
+                .padding()
+                .background(configuration.isPressed ? Color.orange.opacity(0.5) : Color.white)
+                .foregroundColor(configuration.isPressed ? Color.white.opacity(0.5) : Color.orange)
+            
+        }
+    }
     
     // チャット画面のビューレイアウト
     var body: some View {
-
         VStack {
-//             スクロール可能なメッセージリストの表示
-            ScrollView {
-                VStack(alignment: .leading) {
-                    ForEach(chat.indices, id: \.self) { index in
-                        if index>0{
-                            MessageView(message: chat[index])
+            if feel == "none"{
+                List{
+                    Section {
+                        Button(action: {
+                            print("今の気分は？")
+                        }, label: { Text("今の気分は？").foregroundColor(.orange).font(.system(size: 15)) })
+                        
+                        HStack {
+                            Button(action: {
+                                feel="happy"
+                                
+                            }, label: { Text("☺️").font(.system(size: 40))})
+                            .onTapGesture {
+                                
+                            }
+                            .buttonStyle(MyButtonStyle())
+                            
+                            Button(action: {
+                                feel="angry"
+                                
+                            }, label: { Text("😡").font(.system(size: 40)) })
+                            .onTapGesture {
+                                
+                            }
+                            .buttonStyle(MyButtonStyle())
+                            Button(action: {
+                                feel="sad"
+                                
+                            }, label: { Text("😢").font(.system(size: 40)) })
+                            .onTapGesture {
+                                
+                            }
+                            .buttonStyle(MyButtonStyle())
+                            Button(action: {
+                                feel="fun"
+                                
+                            }, label: { Text("😆").font(.system(size: 40)) })
+                            .onTapGesture {
+                                
+                            }
+                            .buttonStyle(MyButtonStyle())
+                            
                         }
+                        .padding(EdgeInsets(top:-20 , leading: 0, bottom: -20, trailing: 0))
                     }
                 }
-//                以下追加
-//                .onChange(of: chat.indices) { _ in
-//                        withAnimation {
-//                            proxy.scrollTo(index)
-//                        }
-//                    }
-//                ここまで
-                
-                }
-            .padding(.top)
-            
-                //以下追加 10290250
-//                ScrollViewReader { proxy in
+//                ScrollView {
 //                    VStack(alignment: .leading) {
 //                        ForEach(chat.indices, id: \.self) { index in
 //                            if index>0{
@@ -55,19 +93,55 @@ struct PageMessageView: View {
 //                            }
 //                        }
 //                    }
-//                    .onChange(of: chat.indices) { _ in
-//                        withAnimation {
-//                            proxy.scrollTo(chat.count)
-//                        }
-//                    }
 //                }
-//                .padding(.top)
-//                ここまで
-
-        
-            // 画面をタップしたときにキーボードを閉じる
-            .onTapGesture {
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                .padding(EdgeInsets(top:-200 , leading: 0, bottom: -20, trailing: 0))
+//                .background(Color(red:242,green:242,blue:247,opacity:1))
+            }
+//             スクロール可能なメッセージリストの表示
+            else{
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        ForEach(chat.indices, id: \.self) { index in
+                            if index>0{
+                                MessageView(message: chat[index])
+                            }
+                        }
+                    }
+                    //                以下追加
+                    //                .onChange(of: chat.indices) { _ in
+                    //                        withAnimation {
+                    //                            proxy.scrollTo(index)
+                    //                        }
+                    //                    }
+                    //                ここまで
+                    
+                }
+//                .padding(EdgeInsets(top:-200 , leading: 0, bottom: -20, trailing: 0))
+                
+                
+                //以下追加 10290250
+                //                ScrollViewReader { proxy in
+                //                    VStack(alignment: .leading) {
+                //                        ForEach(chat.indices, id: \.self) { index in
+                //                            if index>0{
+                //                                MessageView(message: chat[index])
+                //                            }
+                //                        }
+                //                    }
+                //                    .onChange(of: chat.indices) { _ in
+                //                        withAnimation {
+                //                            proxy.scrollTo(chat.count)
+                //                        }
+                //                    }
+                //                }
+                //                .padding(.top)
+                //                ここまで
+                
+                
+                // 画面をタップしたときにキーボードを閉じる
+                .onTapGesture {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
             }
             
             // テキスト入力フィールドと送信ボタンの表示
@@ -132,6 +206,7 @@ struct PageMessageView: View {
         }
     }
 }
+
 
 // メッセージのビュー
 struct MessageView: View {
