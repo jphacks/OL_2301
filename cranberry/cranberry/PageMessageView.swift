@@ -15,7 +15,12 @@ struct PageMessageView: View {
     
     // ユーザーの気持ちを保存する変数
     @State private var feel: String = "none"
-    
+    // ユーザーの出来事を保存する変数
+    @State private var incident: String = "none"
+    // 日時保存する変数
+    @State private var datetext: String = ""
+    //まとめを押したかどうか
+    @State private var isPress: Bool = false
     //102821:41追加 終わりのメッセージ
     @State private var mess: String = ""
     
@@ -164,6 +169,10 @@ struct PageMessageView: View {
                 Button(action: {
                     isCompleting = true
                     // ユーザーのメッセージをチャットに追加
+                    if incident == "none"{
+                        incident = text
+                    }
+
                     chat.append(ChatMessage(role: .user, content: text))
                     text = "" // テキストフィールドをクリア
                     
@@ -172,7 +181,7 @@ struct PageMessageView: View {
                             // OpenAIの設定
                             let config = Configuration(
                                 organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
-                                apiKey:"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"
+                                apiKey:"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"
                             )
                             let openAI = OpenAI(config)
                             let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
@@ -197,12 +206,36 @@ struct PageMessageView: View {
 
                 }
 //                 テキストが空またはチャットが完了していない場合はボタンを無効化
-                .disabled(self.text == "" || isCompleting)
-////                ここを変更した1028.19.26ボタンの条件追加
-//                .disabled(self.text == "" || isCompleting || ButtonFlag)
+                .disabled(self.text == "" || isCompleting || feel=="none")
+                
+                Button(action:{
+                    isPress = true
+                    //日時取得
+                    isCompleting = true
+                    let date = Date()
+                    datetext = "\(date)"
+                    
+                    print(datetext)
+                    print(feel)
+                    print(incident)
+                    
+                }) {
+                    Text("まとめ")
+                        .padding()
+                        .font(.caption2)
+                        .accentColor(Color.white)
+                        .background(Color.green)
+                        .cornerRadius(20)
+                    
+                }
+                .disabled(self.incident == "none" || isCompleting || feel == "none")
+//                PageCarenderView(isPress: $isPress,datetext: $datetext,feel: $feel,incident: $incident)
+                
             }
             .padding(.horizontal)
             .padding(.bottom, 8) // 下部のパディングを調整
+            
+            
         }
     }
 }
@@ -279,41 +312,16 @@ func setupNavigationBar() {
 }
 
 
-////     101行当たり               //会話終了のボタンを作成
-//                    Button(action: {
-//                        //21:47追加
-//                        isCompleting = true
-//                        mess = "今日はここまで！"
-//                        chat.append(ChatMessage(role: .user, content: mess))
-//                        print("ログイン押した")//追加
-//                        Task {
-//                            do {
-//                                // OpenAIの設定
-//                                let config = Configuration(
-//                                    organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
-//                                    apiKey:"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"
-//                                )
-//                                let openAI = OpenAI(config)
-//                                let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
+//     101行当たり               //会話終了のボタンを作成
+//Button(action: {
 //
-//                                // チャットの生成
-//                                let chatCompletion = try await openAI.generateChatCompletion(
-//                                    parameters: chatParameters
-//                                )
+//}, label: { Text("まとめ").font(.system(size: 40))})
+//.onTapGesture {
 //
-//                                isCompleting = false
-//                                // AIのレスポンスをチャットに追加
-//                                chat.append(ChatMessage(role: .assistant, content: chatCompletion.choices[0].message.content))
-//                            } catch {
-//                                print("ERROR DETAILS - \(error)")
-//                            }
-//                        }
-//                        self.ButtonFlag = true
-//                    }) {
-//                        Text("まとめ")
-//                    }
-//                    .padding()
-//                    .accentColor(Color.white)
-//                    .background(Color.green)
-//                    .cornerRadius(50)
-////                    //ここまで追加 21:47
+//}
+//.buttonStyle(MyButtonStyle())
+//.padding()
+//.accentColor(Color.white)
+//.background(Color.green)
+//.cornerRadius(50)
+//                    //ここまで追加 21:47
