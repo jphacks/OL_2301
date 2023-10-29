@@ -14,15 +14,15 @@ struct PageMessageView: View {
     @State private var text: String = ""
     
     // ユーザーの気持ちを保存する変数
-    @State private var feel: String = "none"
+    @State var feel: String = "none"
     // ユーザーの出来事を保存する変数
-    @State private var incident: String = "none"
+    @State var incident: String = "none"
     // 日時保存する変数
-    @State private var datetext: String = ""
+    @State var datetext: String = ""
     //まとめを押したかどうか
-    @State private var isPress: Bool = false
+    @State var isPress: Bool = false
     //102821:41追加 終わりのメッセージ
-    @State private var mess: String = ""
+    @State var mess: String = ""
     
     // チャットメッセージの配列
     @State private var chat: [ChatMessage] = [
@@ -181,7 +181,7 @@ struct PageMessageView: View {
                             // OpenAIの設定
                             let config = Configuration(
                                 organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
-                                apiKey:"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"
+                                apiKey:"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"
                             )
                             let openAI = OpenAI(config)
                             let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
@@ -207,7 +207,7 @@ struct PageMessageView: View {
                 }
 //                 テキストが空またはチャットが完了していない場合はボタンを無効化
                 .disabled(self.text == "" || isCompleting || feel=="none")
-                
+
                 Button(action:{
                     isPress = true
                     //日時取得
@@ -228,8 +228,8 @@ struct PageMessageView: View {
                         .cornerRadius(20)
                     
                 }
-                .disabled(self.incident == "none" || isCompleting || feel == "none")
-//                PageCarenderView(isPress: $isPress,datetext: $datetext,feel: $feel,incident: $incident)
+                .disabled(self.incident == "none" || isCompleting || self.feel == "none")
+//                PageCarenderView(isPress: $isPress ,feel: $feel , incident: $incident, datetext: $datetext)
                 
             }
             .padding(.horizontal)
@@ -311,6 +311,7 @@ func setupNavigationBar() {
     UINavigationBar.appearance().scrollEdgeAppearance = appearance
 }
 
+//ここまで
 
 //     101行当たり               //会話終了のボタンを作成
 //Button(action: {
