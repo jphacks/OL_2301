@@ -181,7 +181,7 @@ struct PageMessageView: View {
                             // OpenAIの設定
                             let config = Configuration(
                                 organizationId:"org-kdBIJgyHjqd4vNMhp7rMACUw",
-                                apiKey:"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"
+                                apiKey:"ここの設定方法検討中"
                             )
                             let openAI = OpenAI(config)
                             let chatParameters = ChatParameters(model: "gpt-3.5-turbo", messages: chat)
